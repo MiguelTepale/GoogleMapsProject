@@ -9,7 +9,7 @@
 import UIKit
 import GoogleMaps
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, GMSMapViewDelegate {
 
     @IBOutlet weak var logoImage: UIImageView!
     @IBOutlet weak var toolbarView: UIView!
@@ -19,13 +19,25 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let camera = GMSCameraPosition.camera(withLatitude: <#T##CLLocationDegrees#>, longitude: <#T##CLLocationDegrees#>, zoom: <#T##Float#>)
+        let camera = GMSCameraPosition.camera(withLatitude: 40.708656, longitude: -74.014856, zoom: 16.0)
+        mapView.animate(to: camera)
         
+        let marker = GMSMarker()
+        marker.position = camera.target
+        marker.snippet = "TurnToTech"
+        marker.map = mapView
+    
         self.mapView.bringSubview(toFront: logoImage)
         self.mapView.bringSubview(toFront: toolbarView)
         self.mapView.bringSubview(toFront: terrainSegmentedControl)
         
         mapView.mapType = .normal
+    }
+    
+    func hardCodedSearchResults() {
+        
+        
+        
     }
     
     @IBAction func mapSegmentedAction(_ sender: UISegmentedControl) {
@@ -38,8 +50,6 @@ class ViewController: UIViewController {
             mapView.mapType = .satellite
         }
     }
-    
-    
     
 }
 

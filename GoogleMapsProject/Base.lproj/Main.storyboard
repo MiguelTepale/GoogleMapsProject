@@ -34,9 +34,8 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ziX-fr-w9T" userLabel="Custom Toolbar View">
                                         <rect key="frame" x="0.0" y="623" width="375" height="44"/>
                                         <subviews>
-                                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="de0-lB-U3K">
+                                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="de0-lB-U3K">
                                                 <rect key="frame" x="92" y="8" width="191" height="29"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <segments>
                                                     <segment title="Normal"/>
                                                     <segment title="Hybrid"/>
@@ -49,7 +48,11 @@
                                         </subviews>
                                         <color key="backgroundColor" red="0.97636479139328003" green="0.97653168439865112" blue="0.97635418176651001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
+                                            <constraint firstItem="de0-lB-U3K" firstAttribute="leading" secondItem="ziX-fr-w9T" secondAttribute="leading" constant="92" id="7rY-Yq-6AW"/>
                                             <constraint firstAttribute="height" constant="44" id="Gcl-d5-Cob"/>
+                                            <constraint firstItem="de0-lB-U3K" firstAttribute="top" secondItem="ziX-fr-w9T" secondAttribute="top" constant="8" id="LQr-Aw-XS5"/>
+                                            <constraint firstAttribute="bottom" secondItem="de0-lB-U3K" secondAttribute="bottom" constant="8" id="jCn-u8-nIT"/>
+                                            <constraint firstAttribute="trailing" secondItem="de0-lB-U3K" secondAttribute="trailing" constant="92" id="t3W-MP-z0D"/>
                                         </constraints>
                                     </view>
                                 </subviews>

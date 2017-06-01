@@ -13,6 +13,7 @@
 		8CF333401EDF2A7F0061CC06 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8CF3333F1EDF2A7F0061CC06 /* Assets.xcassets */; };
 		8CF333431EDF2A7F0061CC06 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8CF333411EDF2A7F0061CC06 /* LaunchScreen.storyboard */; };
 		8CF3334E1EDF30BD0061CC06 /* apple-icon-180x180.png in Resources */ = {isa = PBXBuildFile; fileRef = 8CF3334D1EDF30BD0061CC06 /* apple-icon-180x180.png */; };
+		8CF333501EE085D50061CC06 /* BarList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8CF3334F1EE085D50061CC06 /* BarList.plist */; };
 		BDB42C2689CC4A9034449CAD /* Pods_GoogleMapsProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4240C9CE548BC5DA1036CEF9 /* Pods_GoogleMapsProject.framework */; };
 /* End PBXBuildFile section */
 
@@ -28,6 +29,7 @@
 		8CF333421EDF2A7F0061CC06 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8CF333441EDF2A7F0061CC06 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8CF3334D1EDF30BD0061CC06 /* apple-icon-180x180.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "apple-icon-180x180.png"; sourceTree = "<group>"; };
+		8CF3334F1EE085D50061CC06 /* BarList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = BarList.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +81,7 @@
 				8CF3333F1EDF2A7F0061CC06 /* Assets.xcassets */,
 				8CF333411EDF2A7F0061CC06 /* LaunchScreen.storyboard */,
 				8CF333441EDF2A7F0061CC06 /* Info.plist */,
+				8CF3334F1EE085D50061CC06 /* BarList.plist */,
 			);
 			path = GoogleMapsProject;
 			sourceTree = "<group>";
@@ -165,6 +168,7 @@
 				8CF3334E1EDF30BD0061CC06 /* apple-icon-180x180.png in Resources */,
 				8CF333431EDF2A7F0061CC06 /* LaunchScreen.storyboard in Resources */,
 				8CF333401EDF2A7F0061CC06 /* Assets.xcassets in Resources */,
+				8CF333501EE085D50061CC06 /* BarList.plist in Resources */,
 				8CF3333E1EDF2A7F0061CC06 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

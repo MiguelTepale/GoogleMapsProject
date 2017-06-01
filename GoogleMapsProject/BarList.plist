@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>Name</key>
+		<string>Clinton Hill</string>
+		<key>Image</key>
+		<string>clintonHill.jpg</string>
+		<key>Latitude</key>
+		<real>40.708072</real>
+		<key>Longitude</key>
+		<real>-74.01486800000001</real>
+		<key>Website</key>
+		<string>http://www.clintonhallny.com</string>
+	</dict>
+	<dict>
+		<key>Name</key>
+		<string>Wogies</string>
+		<key>Image</key>
+		<string>wogies.jpg</string>
+		<key>Latitude</key>
+		<string>40.707512</string>
+		<key>Longitude</key>
+		<string>-74.013392</string>
+		<key>Website</key>
+		<string>http://www.wogies.com</string>
+	</dict>
+	<dict>
+		<key>Name</key>
+		<string>Trinity Place</string>
+		<key>Image</key>
+		<string>trinityPlace.jpg</string>
+		<key>Latitude</key>
+		<string>40.709024</string>
+		<key>Longitude</key>
+		<string>-74.011524</string>
+		<key>Website</key>
+		<string>http://www.trinityplacenyc.com</string>
+	</dict>
+</array>
+</plist>
