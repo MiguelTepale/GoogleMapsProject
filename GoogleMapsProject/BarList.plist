@@ -20,9 +20,9 @@
 		<key>Image</key>
 		<string>wogies.jpg</string>
 		<key>Latitude</key>
-		<string>40.707512</string>
+		<real>40.707512</real>
 		<key>Longitude</key>
-		<string>-74.013392</string>
+		<real>-74.013392</real>
 		<key>Website</key>
 		<string>http://www.wogies.com</string>
 	</dict>
@@ -32,9 +32,9 @@
 		<key>Image</key>
 		<string>trinityPlace.jpg</string>
 		<key>Latitude</key>
-		<string>40.709024</string>
+		<real>40.709024</real>
 		<key>Longitude</key>
-		<string>-74.011524</string>
+		<real>-74.01152399999999</real>
 		<key>Website</key>
 		<string>http://www.trinityplacenyc.com</string>
 	</dict>
