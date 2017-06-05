@@ -9,9 +9,9 @@
 import UIKit
 import GoogleMaps
 
-class ViewController: UIViewController, GMSMapViewDelegate {
+class ViewController: UIViewController {
     
-    var userResults: [SearchResult] = []
+    var userResults: [CustomGMSMarker] = []
 
     @IBOutlet weak var logoImage: UIImageView!
     @IBOutlet weak var toolbarView: UIView!
@@ -21,11 +21,11 @@ class ViewController: UIViewController, GMSMapViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        mapView.delegate = self
         loadStockSearchMarkers()
         
         let camera = GMSCameraPosition.camera(withLatitude: 40.708656, longitude: -74.014856, zoom: 16.0)
         mapView.animate(to: camera)
-        
         let marker = GMSMarker()
         marker.position = camera.target
         marker.title = "TurnToTech"
@@ -37,7 +37,7 @@ class ViewController: UIViewController, GMSMapViewDelegate {
         self.mapView.bringSubview(toFront: terrainSegmentedControl)
         
         mapView.mapType = .normal
-
+        
     }
     
     func loadStockSearchMarkers() {
@@ -60,19 +60,11 @@ class ViewController: UIViewController, GMSMapViewDelegate {
                     let image = bar["Image"] as? String,
                     let website = bar["Website"] as? String {
                     
-                    let barEntry = SearchResult(name: name, imageName: image, latitude: latitude, longitude: longitude, websiteURL: website)
+                    let barEntry = CustomGMSMarker(name: name, imageURL: image, latitude: latitude, longitude: longitude, websiteURL: website)
+                    barEntry.map = mapView
                     userResults.append(barEntry)
                 }
             }
-        }
-        
-        for result in userResults {
-            let camera = GMSCameraPosition.camera(withLatitude: result.position.latitude, longitude: result.position.longitude, zoom: 16.0)
-            let marker = GMSMarker()
-            marker.position = camera.target
-            marker.title = result.title
-            marker.snippet = "I hate you more GMS"
-            marker.map = mapView
         }
     }
     
@@ -88,4 +80,27 @@ class ViewController: UIViewController, GMSMapViewDelegate {
     }
     
 }
+
+extension ViewController:  GMSMapViewDelegate {
+    
+    func mapView(_ mapView: GMSMapView, markerInfoWindow marker: GMSMarker) -> UIView? {
+        
+        guard let customInfoWindow = Bundle.main.loadNibNamed("CustomAnnotation", owner: nil, options: nil)?[0] as? CustomAnnotation else { return nil }
+        
+        let myMarker = marker as! CustomGMSMarker
+        customInfoWindow.titleLabel.text = myMarker.title
+        customInfoWindow.detailLabel.text = "Hello World!"
+        
+        if let imageURLExists = myMarker.imageURLString {
+            customInfoWindow.searchImageIcon.image = UIImage(named:imageURLExists)
+        }
+        else {
+            customInfoWindow.searchImageIcon.image = UIImage(named:"apple-icon-180x180.png")
+        }
+        
+        return customInfoWindow
+    }
+}
+
+
 

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8CAD68DA1EE1D4EF00184EE5 /* CustomAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAD68D91EE1D4EF00184EE5 /* CustomAnnotation.swift */; };
+		8CAD68DC1EE1D60700184EE5 /* CustomAnnotation.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8CAD68DB1EE1D60700184EE5 /* CustomAnnotation.xib */; };
 		8CF333391EDF2A7F0061CC06 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF333381EDF2A7F0061CC06 /* AppDelegate.swift */; };
 		8CF3333B1EDF2A7F0061CC06 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF3333A1EDF2A7F0061CC06 /* ViewController.swift */; };
 		8CF3333E1EDF2A7F0061CC06 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8CF3333C1EDF2A7F0061CC06 /* Main.storyboard */; };
@@ -14,7 +16,7 @@
 		8CF333431EDF2A7F0061CC06 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8CF333411EDF2A7F0061CC06 /* LaunchScreen.storyboard */; };
 		8CF3334E1EDF30BD0061CC06 /* apple-icon-180x180.png in Resources */ = {isa = PBXBuildFile; fileRef = 8CF3334D1EDF30BD0061CC06 /* apple-icon-180x180.png */; };
 		8CF333501EE085D50061CC06 /* BarList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8CF3334F1EE085D50061CC06 /* BarList.plist */; };
-		8CF333521EE09A560061CC06 /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF333511EE09A560061CC06 /* SearchResult.swift */; };
+		8CF333521EE09A560061CC06 /* CustomGMSMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF333511EE09A560061CC06 /* CustomGMSMarker.swift */; };
 		8CF333561EE0A9500061CC06 /* clintonHill.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8CF333531EE0A9500061CC06 /* clintonHill.jpg */; };
 		8CF333571EE0A9500061CC06 /* trinityPlace.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8CF333541EE0A9500061CC06 /* trinityPlace.jpg */; };
 		8CF333581EE0A9500061CC06 /* wogies.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8CF333551EE0A9500061CC06 /* wogies.jpg */; };
@@ -25,6 +27,8 @@
 		29877658DCDADFB369DF7746 /* Pods-GoogleMapsProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoogleMapsProject.release.xcconfig"; path = "Pods/Target Support Files/Pods-GoogleMapsProject/Pods-GoogleMapsProject.release.xcconfig"; sourceTree = "<group>"; };
 		410964333F92389C4BDD33D8 /* Pods-GoogleMapsProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoogleMapsProject.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GoogleMapsProject/Pods-GoogleMapsProject.debug.xcconfig"; sourceTree = "<group>"; };
 		4240C9CE548BC5DA1036CEF9 /* Pods_GoogleMapsProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GoogleMapsProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8CAD68D91EE1D4EF00184EE5 /* CustomAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomAnnotation.swift; sourceTree = "<group>"; };
+		8CAD68DB1EE1D60700184EE5 /* CustomAnnotation.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomAnnotation.xib; sourceTree = "<group>"; };
 		8CF333351EDF2A7F0061CC06 /* GoogleMapsProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoogleMapsProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CF333381EDF2A7F0061CC06 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8CF3333A1EDF2A7F0061CC06 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -34,7 +38,7 @@
 		8CF333441EDF2A7F0061CC06 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8CF3334D1EDF30BD0061CC06 /* apple-icon-180x180.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "apple-icon-180x180.png"; sourceTree = "<group>"; };
 		8CF3334F1EE085D50061CC06 /* BarList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = BarList.plist; sourceTree = "<group>"; };
-		8CF333511EE09A560061CC06 /* SearchResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
+		8CF333511EE09A560061CC06 /* CustomGMSMarker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomGMSMarker.swift; sourceTree = "<group>"; };
 		8CF333531EE0A9500061CC06 /* clintonHill.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = clintonHill.jpg; sourceTree = "<group>"; };
 		8CF333541EE0A9500061CC06 /* trinityPlace.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = trinityPlace.jpg; sourceTree = "<group>"; };
 		8CF333551EE0A9500061CC06 /* wogies.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = wogies.jpg; sourceTree = "<group>"; };
@@ -85,10 +89,12 @@
 			children = (
 				8CF333381EDF2A7F0061CC06 /* AppDelegate.swift */,
 				8CF3333A1EDF2A7F0061CC06 /* ViewController.swift */,
-				8CF333511EE09A560061CC06 /* SearchResult.swift */,
+				8CF333511EE09A560061CC06 /* CustomGMSMarker.swift */,
 				8CF3333C1EDF2A7F0061CC06 /* Main.storyboard */,
 				8CF3333F1EDF2A7F0061CC06 /* Assets.xcassets */,
 				8CF333411EDF2A7F0061CC06 /* LaunchScreen.storyboard */,
+				8CAD68D91EE1D4EF00184EE5 /* CustomAnnotation.swift */,
+				8CAD68DB1EE1D60700184EE5 /* CustomAnnotation.xib */,
 				8CF333441EDF2A7F0061CC06 /* Info.plist */,
 				8CF3334F1EE085D50061CC06 /* BarList.plist */,
 			);
@@ -182,6 +188,7 @@
 				8CF333561EE0A9500061CC06 /* clintonHill.jpg in Resources */,
 				8CF333401EDF2A7F0061CC06 /* Assets.xcassets in Resources */,
 				8CF333571EE0A9500061CC06 /* trinityPlace.jpg in Resources */,
+				8CAD68DC1EE1D60700184EE5 /* CustomAnnotation.xib in Resources */,
 				8CF333501EE085D50061CC06 /* BarList.plist in Resources */,
 				8CF3333E1EDF2A7F0061CC06 /* Main.storyboard in Resources */,
 				8CF333581EE0A9500061CC06 /* wogies.jpg in Resources */,
@@ -244,7 +251,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				8CF3333B1EDF2A7F0061CC06 /* ViewController.swift in Sources */,
-				8CF333521EE09A560061CC06 /* SearchResult.swift in Sources */,
+				8CF333521EE09A560061CC06 /* CustomGMSMarker.swift in Sources */,
+				8CAD68DA1EE1D4EF00184EE5 /* CustomAnnotation.swift in Sources */,
 				8CF333391EDF2A7F0061CC06 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

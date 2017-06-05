@@ -9,15 +9,16 @@
 //import UIKit
 import GoogleMaps
 
-class SearchResult: GMSMarker {
+class CustomGMSMarker: GMSMarker {
     
     var website: String?
+    var imageURLString: String?
     
-    init(name: String, imageName: String, latitude: Double, longitude: Double, websiteURL: String) {
+    init(name: String, imageURL: String, latitude: Double, longitude: Double, websiteURL: String) {
         
         super.init()
         self.title = name
-        self.icon = UIImage(named: imageName)
+        self.imageURLString = imageURL
         self.position = CLLocationCoordinate2DMake(latitude, longitude)
         self.website = websiteURL
     }
