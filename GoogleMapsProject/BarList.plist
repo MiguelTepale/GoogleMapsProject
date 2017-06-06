@@ -4,9 +4,19 @@
 <array>
 	<dict>
 		<key>Name</key>
-		<string>Clinton Hill</string>
+		<string>Bill&apos;s Bar &amp; Burger</string>
 		<key>Image</key>
-		<string>clintonHill.jpg</string>
+		<string>apple-icon-180x180.png</string>
+		<key>Latitude</key>
+		<real>40.710038</real>
+		<key>Longitude</key>
+		<real>-74.014133</real>
+	</dict>
+	<dict>
+		<key>Name</key>
+		<string>Clinton Hall</string>
+		<key>Image</key>
+		<string>clintonHall.jpg</string>
 		<key>Latitude</key>
 		<real>40.708072</real>
 		<key>Longitude</key>

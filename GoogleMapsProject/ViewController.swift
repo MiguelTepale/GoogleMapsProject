@@ -57,8 +57,12 @@ class ViewController: UIViewController {
                 if let name = bar["Name"] as? String,
                     let latitude = bar["Latitude"] as? Double,
                     let longitude = bar["Longitude"] as? Double,
-                    let image = bar["Image"] as? String,
-                    let website = bar["Website"] as? String {
+                    let image = bar["Image"] as? String{
+                    var website = "https://www.google.com"
+                    
+                    if let websiteExists = bar["Website"] {
+                        website = websiteExists as! String
+                    }
                     
                     let barEntry = CustomGMSMarker(name: name, imageURL: image, latitude: latitude, longitude: longitude, websiteURL: website)
                     barEntry.map = mapView
@@ -76,6 +80,21 @@ class ViewController: UIViewController {
             mapView.mapType = .hybrid
         default:
             mapView.mapType = .satellite
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "showWebViewController" {
+            let nav = segue.destination as! UINavigationController
+            let webVC = nav.viewControllers[0] as! WebViewController
+            
+            let marker = sender as? CustomGMSMarker
+            
+            if let websiteExists = marker?.website {
+                webVC.userUrl = websiteExists
+                print(webVC.userUrl)
+            }
         }
     }
     
@@ -100,7 +119,20 @@ extension ViewController:  GMSMapViewDelegate {
         
         return customInfoWindow
     }
+    
+    func mapView(_ mapView: GMSMapView, didTapInfoWindowOf marker: GMSMarker) {
+        
+        let currentMarker = marker as? CustomGMSMarker
+        
+        //Option #1
+        performSegue(withIdentifier: "showWebViewController", sender: currentMarker)
+        
+        //Option #2
+//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//        let webViewNavController = storyboard.instantiateViewController(withIdentifier:"WebNav") as! UINavigationController
+//        let webViewController = webViewNavController.viewControllers[0] as! WebViewController
+//        webViewController.userUrl = currentMarker?.website
+//
+//        self.present(webViewNavController, animated: true, completion: nil)
+    }
 }
-
-
-
