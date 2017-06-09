@@ -4,6 +4,20 @@
 <array>
 	<dict>
 		<key>Name</key>
+		<string>TurnToTech</string>
+		<key>Image</key>
+		<string>apple-icon-180x180.png</string>
+		<key>Latitude</key>
+		<real>40.708656</real>
+		<key>Longitude</key>
+		<real>-74.01485599999999</real>
+		<key>Website</key>
+		<string>http://turntotech.io</string>
+		<key>Address</key>
+		<string>40 Rector St #1000, New York, NY 10006</string>
+	</dict>
+	<dict>
+		<key>Name</key>
 		<string>Bill&apos;s Bar &amp; Burger</string>
 		<key>Image</key>
 		<string>apple-icon-180x180.png</string>
@@ -23,6 +37,8 @@
 		<real>-74.01486800000001</real>
 		<key>Website</key>
 		<string>http://www.clintonhallny.com</string>
+		<key>Address</key>
+		<string>90 Washington St, New York, NY 10006</string>
 	</dict>
 	<dict>
 		<key>Name</key>
@@ -35,6 +51,8 @@
 		<real>-74.013392</real>
 		<key>Website</key>
 		<string>http://www.wogies.com</string>
+		<key>Address</key>
+		<string>44 Trinity Pl, New York, NY 10006</string>
 	</dict>
 	<dict>
 		<key>Name</key>
@@ -47,6 +65,8 @@
 		<real>-74.01152399999999</real>
 		<key>Website</key>
 		<string>http://www.trinityplacenyc.com</string>
+		<key>Address</key>
+		<string>115 Broadway, New York, NY 10006</string>
 	</dict>
 </array>
 </plist>
