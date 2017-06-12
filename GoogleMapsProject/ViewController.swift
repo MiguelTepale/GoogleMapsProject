@@ -133,7 +133,6 @@ class ViewController: UIViewController {
     }
 }
 
-//FIXME:Figure out why 'searchBarSearchButtonClicked' crashes the app
 extension ViewController: UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
@@ -155,43 +154,56 @@ extension ViewController: UISearchBarDelegate {
             guard let jsonData = data, error == nil else {
                 return
             }
-            
             guard let decodedJSON = try? JSONSerialization.jsonObject(with: jsonData, options: []) as! [String:Any] else {
                 return
             }
             
             let searchResults = decodedJSON["results"]! as! [[String:Any]]
             
-            for search in searchResults {
+            for result in searchResults {
                 
-                guard let name = search["name"] as? String else {
+                guard let name = result["name"] as? String else {
+                    print("Locale name doesn't exist")
+                    continue
+                }
+                guard let placeID = result["place_id"] as? String else {
+                    print("Locale place_id doesn't exist")
+                    continue
+                }
+                guard let address = result["vicinity"] as? String else {
+                    print("Locale address doesn't exist")
                     continue
                 }
                 
-                guard let address = search["vicinity"] as? String else {
-                    continue
-                }
+                var latitude = Double()
+                var longitude = Double()
+                var photoIdReference: String = ""
                 
-                guard let placeID = search["place_id"] as? String else {
-                    continue
-                }
-                
-                if let geometryDictionary = search["geometry"] as? [String:Any] {
-                    
+                if let geometryDictionary = result["geometry"] as? [String:Any] {
                     if let locationDictionary = geometryDictionary["location"] as? [String:Double] {
-                        
-                        let latitude = locationDictionary["lat"]!
-                        let longitude = locationDictionary["lng"]!
-                        
-                        let currentMarker = CustomGMSMarker(name: name, imageURL: "", latitude: 0.0, longitude: 0.0, websiteURL: "", address: address, entryID: placeID, photoID: "")
-                        currentMarker.position.latitude = latitude
-                        currentMarker.position.longitude = longitude
-                        
-                        //Insert gmsMarkers to map and insert values to 'userResults' array
-                        self.userResults.append(currentMarker)
-                        currentMarker.map = self.mapView
+                        latitude = locationDictionary["lat"]!
+                        longitude = locationDictionary["lng"]!
+                    }
+                    else {
+                        print("Longitude or Latitude doesn't exist")
                     }
                 }
+                if let photosArray = result["photos"] as? [[String:Any]] {
+                    for photo in photosArray {
+                        if let photoObjectExists = photo["photo_reference"] as? String {
+                            photoIdReference = photoObjectExists
+                        }
+                        else {
+                            print("'photoIdReference' does not exist")
+                        }
+                    }
+                }
+                else {
+                    print("photo's array doesn't exist")
+                }
+                let currentMarker = CustomGMSMarker(name: name, imageURL: "", latitude: latitude, longitude: longitude, websiteURL: "", address: address, entryID: placeID, photoID: photoIdReference)
+                self.userResults.append(currentMarker)
+                currentMarker.map = self.mapView
             }
         }
         .resume()
@@ -210,40 +222,20 @@ extension ViewController: GMSMapViewDelegate {
         
         if initialFirstSearchInitiated {
             
-            let placeID = myMarker.entryIdString!
-            let apiString = "https://maps.googleapis.com/maps/api/place/details/json?placeid=\(placeID)&key=AIzaSyDhXH99Wt-yp3AaKvZfnlVdL_jekrKAAx8"
-            let apiURL = URL(string: apiString)
+            let photoID = myMarker.photoIdString!
+            let apiString = "https://maps.googleapis.com/maps/api/place/photo?maxheight=250&maxwidth=250&photoreference=\(photoID)&key=AIzaSyDhXH99Wt-yp3AaKvZfnlVdL_jekrKAAx8"
             
-            URLSession.shared.dataTask(with: apiURL!) { data, response, error in
-                
-                guard let jsonData = data, error == nil else {
-                    return
+            if let apiURL = URL(string: apiString) {
+                do {
+                    let imageData = try Data(contentsOf: apiURL)
+                    customInfoWindow.searchImageIcon.image = UIImage(data: imageData)
                 }
-                
-                guard let decodedJSON = try? JSONSerialization.jsonObject(with: jsonData, options: []) as! [String:Any] else {
-                    return
+                catch {
+                    customInfoWindow.searchImageIcon.image = UIImage(named: "apple-icon-180x180.png")
                 }
-            
-                let searchResults = decodedJSON["result"]! as! [String:Any]
-                let photos = searchResults["photos"]! as! [[String:Any]]
-                
-                for photo in photos {
-                    
-                    var photoReferenceString = "apple-icon-180x180.png"
-                    
-                    if let photoReferenceExists = photo["photo_reference"] {
-                        photoReferenceString = photoReferenceExists as! String
-                        myMarker.photoIdString = photoReferenceString
-                        print(myMarker.photoIdString!)
-                        break
-                    }
-                }
-                DispatchQueue.main.async(execute: {
-                    customInfoWindow.searchImageIcon.image = UIImage(named:myMarker.photoIdString!)
-                })
             }
-            .resume()
-        } else {
+        }
+        else {
             
             if let imageURLExists = myMarker.imageURLString {
                 customInfoWindow.searchImageIcon.image = UIImage(named:imageURLExists)
