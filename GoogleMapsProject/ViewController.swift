@@ -215,25 +215,29 @@ extension ViewController: GMSMapViewDelegate {
     func mapView(_ mapView: GMSMapView, markerInfoWindow marker: GMSMarker) -> UIView? {
         
         guard let customInfoWindow = Bundle.main.loadNibNamed("CustomAnnotation", owner: nil, options: nil)?[0] as? CustomAnnotation else { return nil }
-        
+        marker.tracksInfoWindowChanges = true
         let myMarker = marker as! CustomGMSMarker
         customInfoWindow.titleLabel.text = myMarker.title
         customInfoWindow.detailLabel.text = myMarker.addressString
         
+        let photoID = myMarker.photoIdString!
+        let apiString = "https://maps.googleapis.com/maps/api/place/photo?maxheight=250&maxwidth=250&photoreference=\(photoID)&key=AIzaSyDhXH99Wt-yp3AaKvZfnlVdL_jekrKAAx8"
+        
+        let apiURL = URL(string: apiString)
+        
         if initialFirstSearchInitiated {
             
-            let photoID = myMarker.photoIdString!
-            let apiString = "https://maps.googleapis.com/maps/api/place/photo?maxheight=250&maxwidth=250&photoreference=\(photoID)&key=AIzaSyDhXH99Wt-yp3AaKvZfnlVdL_jekrKAAx8"
-            
-            if let apiURL = URL(string: apiString) {
-                do {
-                    let imageData = try Data(contentsOf: apiURL)
-                    customInfoWindow.searchImageIcon.image = UIImage(data: imageData)
+            URLSession.shared.dataTask(with: apiURL!) { data, response, error in
+                
+                guard let jsonData = data, error == nil else {
+                    return
                 }
-                catch {
-                    customInfoWindow.searchImageIcon.image = UIImage(named: "apple-icon-180x180.png")
+                
+                DispatchQueue.main.async {
+                    customInfoWindow.searchImageIcon.image = UIImage(data: jsonData)
                 }
             }
+                .resume()
         }
         else {
             
