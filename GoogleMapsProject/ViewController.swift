@@ -162,18 +162,18 @@ extension ViewController: UISearchBarDelegate {
             
             for result in searchResults {
                 
-                guard let name = result["name"] as? String else {
-                    print("Locale name doesn't exist")
+                guard let name = result["name"] as? String, let placeID = result["place_id"] as? String, let address = result["vicinity"] as? String else {
+                    print("Locale name,place_id,Locale doesn't exist")
                     continue
                 }
-                guard let placeID = result["place_id"] as? String else {
-                    print("Locale place_id doesn't exist")
-                    continue
-                }
-                guard let address = result["vicinity"] as? String else {
-                    print("Locale address doesn't exist")
-                    continue
-                }
+//                guard let placeID = result["place_id"] as? String else {
+//                    print("Locale place_id doesn't exist")
+//                    continue
+//                }
+//                guard let address = result["vicinity"] as? String else {
+//                    print("Locale address doesn't exist")
+//                    continue
+//                }
                 
                 var latitude = Double()
                 var longitude = Double()
@@ -215,7 +215,7 @@ extension ViewController: GMSMapViewDelegate {
     func mapView(_ mapView: GMSMapView, markerInfoWindow marker: GMSMarker) -> UIView? {
         
         guard let customInfoWindow = Bundle.main.loadNibNamed("CustomAnnotation", owner: nil, options: nil)?[0] as? CustomAnnotation else { return nil }
-        marker.tracksInfoWindowChanges = true
+        marker.tracksInfoWindowChanges = true //Make google maps aware of any updates to the map and update any changes to the map.
         let myMarker = marker as! CustomGMSMarker
         customInfoWindow.titleLabel.text = myMarker.title
         customInfoWindow.detailLabel.text = myMarker.addressString
